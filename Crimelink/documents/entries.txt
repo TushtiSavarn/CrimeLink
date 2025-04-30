@@ -1,0 +1,117 @@
+Entry 1(login)
+
+name:Asha Singh
+
+userid: UID_df163a1a
+
+reported: Report_2551b0ce
+
+password:asha@123
+
+Date: 02-04-2025
+
+Time: 14:30
+
+Description: A suspicious person was seen trying to lure school children near the main gate of St. Mary’s School.
+
+Location: Jaipur, Rajasthan
+
+Crime Type: Women & Children Crime
+
+Image Proof: school_gate_suspect.jpg
+
+Document Proof: witness_statement_1.pdf
+
+🔹 Entry 2(login)
+name:Naina kumari
+
+password:naina@123
+
+userid:UID_41bc8c0a
+
+reportid:Report_b61b635c
+Date: 25-03-2025
+
+Time: 10:15
+
+Description: Unauthorized withdrawal of ₹25,000 from a user's bank account without OTP.
+
+Location: Pune, Maharashtra
+
+Crime Type: Financial Fraud
+
+Image Proof: bank_transaction_screenshot.png
+
+Document Proof: bank_dispute_letter.pdf
+
+🔹 Entry 3(login but no report reporteed)
+name:Pooja Tripathi
+
+password:pooja@123
+
+userid: UID_132e3dd3
+
+reportid:
+
+Date: 18-03-2025
+
+Time: 20:45
+
+Description: A fake job portal scammed multiple users by charging registration fees and vanishing.
+
+Location: Bengaluru, Karnataka
+
+Crime Type: Cyber Crime
+
+Image Proof: fake_job_site.png
+
+Document Proof: email_conversation.pdf
+
+🔹 Entry 4(sign up no report reported)
+
+name:priya
+
+passwors:priya@111
+
+userid: 
+
+reportid:
+
+
+Date: 11-03-2025
+
+Time: 07:20
+
+Description: A woman was followed and harassed on her way to work, caught partially on CCTV.
+
+Location: Lucknow, Uttar Pradesh
+
+Crime Type: Women & Children Crime
+
+Image Proof: cctv_snapshot_women_harassment.jpg
+
+Document Proof: victim_complaint_letter.pdf
+
+🔹 Entry 5(sign up no report reported)
+
+name:Tina 
+
+password:tina@123
+
+userid:
+
+reportid:
+
+Date: 05-03-2025
+
+Time: 22:10
+
+Description: A user received a phishing email claiming to be from the income tax department, stealing login credentials.
+
+Location: Delhi
+
+Crime Type: Cyber Crime
+
+Image Proof: phishing_email_screenshot.jpg
+
+Document Proof: cyber_cell_complaint.pdf

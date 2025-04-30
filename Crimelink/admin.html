@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimelink-Admin</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <style>
+        /* Header Styling */
+        .headerr {
+            height: 80px; /* Reduced height of the header */
+            width: 100%;
+            background-color: #002244;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            justify-content: space-between;
+            position: fixed; /* Fixed the header at the top */
+            top: 0;
+            left: 0;
+            z-index: 9999; /* Ensures it's always on top */
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo {
+    height: 100px; /* Increase the height of the logo */
+    width: auto; /* Keep width auto to maintain aspect ratio */
+    max-width: 180px; /* Increase the width of the logo for better visibility */
+}
+
+        .site-name {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        /* Navigation Links */
+        .nav-linkss {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-linkss a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease-in-out;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        .nav-linkss a:hover {
+            color: #FFD700;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Background Image Styling */
+        .bgpic {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            z-index: -1;
+        }
+        
+        /* Container and Square Block Styling */
+        .container {
+    display: flex;  
+    gap: 20px;  
+    justify-content: center;  
+    margin-top: 200px; /* Increased gap from bgpic to the squares */
+}
+
+         .squareb {
+            height: 300px;
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(238, 20, 20, 0.2);
+            padding: 15px;
+            text-align: center;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        /*.squarea { background-color: #3e6007ef; }*/
+        .squareb { background-color: #65c953f7; }
+       
+
+        .squarea:hover, .squareb:hover, .squarec:hover {
+            box-shadow: 0 0 20px rgba(0, 102, 255, 0.8);
+        }
+
+        /* Image Styling */
+        .square-img {
+            height: 150px;
+            width: auto;
+            margin-bottom: 10px;
+        }
+
+        /* Button Styling */
+        .square-btn {
+            background-color: rgb(18, 46, 203);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .square-btn:hover {
+            background-color: rgb(15, 35, 160);
+        }
+        .radio-group {
+    display: flex;
+    gap: 10px; /* Adds spacing between radio buttons */
+    align-items: center;
+}
+
+
+
+    </style>
+
+</head>
+<body>
+     <!-- Header Section -->
+    <div class="headerr">
+        <a href="index.html" class="logo-container">
+            <img src="logo.png" alt="CrimeLink Logo" class="logo">
+            <b class="site-name">CrimeLink</b>
+        </a>
+    </div>
+    <div>
+        <img src="bgpic.jpg" alt="CrimeLink Logo" class="bgpic">
+    </div>
+    <div class="container">
+        <!--<div class="squarea">
+           <img src="systemlogs.png" alt="Women and Children Safety" class="square-img"> 
+            <h2>System Logs Tracking</h2>
+            
+            <button class="square-btn" onclick="window.location.href='viewlogs.php';">Track</button>
+
+        </div>-->
+        
+        <div class="squareb">
+            <img src="dbanalysis2.avif" alt="Financial Fraud Protection" class="square-img">
+            <h2>Database </h2> 
+            <button class="square-btn" onclick="window.location.href='http://localhost/phpmyadmin/'">Open database</button>
+        </div>
+        
+     </div>  
+    <script>
+       function generateReport() {
+    let selectedType = document.querySelector('input[name="reportType"]:checked');
+
+    if (!selectedType) {
+        alert("Please select a report type!");
+        return;
+    }
+
+    let type = selectedType.value;
+
+    fetch("fetch_analysis.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "type=" + type
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            alert(data.error);
+        } else {
+            console.log(data);
+            displayReport(data);
+        }
+    })
+    .catch(error => console.error("Error:", error));
+}
+
+function displayReport(data) {
+    let reportWindow = window.open("", "ReportWindow", "width=800,height=600");
+    reportWindow.document.write("<h2>Generated Report</h2>");
+    reportWindow.document.write("<table border='1'><tr><th>Case ID</th><th>Title</th><th>Description</th><th>Date</th></tr>");
+
+    data.forEach(row => {
+        reportWindow.document.write(<tr><td>${row.case_id}</td><td>${row.case_title}</td><td>${row.description}</td><td>${row.report_date}</td></tr>);
+    });
+
+    reportWindow.document.write("</table>");
+}
+
+function displayAnalysis(data) {
+    let analysisWindow = window.open("", "AnalysisWindow", "width=800,height=600");
+    analysisWindow.document.write("<h2>Database Analysis</h2>");
+    analysisWindow.document.write("<table border='1'><tr><th>Category</th><th>Total</th></tr>");
+
+    data.forEach(row => {
+        let key = row.category ? row.category : row.officer_name;
+        analysisWindow.document.write(<tr><td>${key}</td><td>${row.total}</td></tr>);
+    });
+
+    analysisWindow.document.write("</table>");
+}
+
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="viewlogs.php">System Logs</a></li>
+                    <li><a href="http://localhost/phpmyadmin/">Database</a></li>
+                    <li><a href="home.html">Logout</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="https://legislative.gov.in/constitution-of-india/">Constitution</a></li>
+                    <li><a href="rightss.html">Legal Rights</a></li>
+                    <li><a href="safety_tips.html">Safety Guidelines</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: crimelink@gmail.com</p>
+                <p>Emergency: 112</p>
+                <p>Women Helpline: 1091</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CrimeLink. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Add footer styles -->
+    <style>
+        .footer {
+            background: #002244;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            margin: 20px;
+            min-width: 250px;
+        }
+
+        .footer-section h4 {
+            color: #FFD700;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media screen and (max-width: 768px) {
+            .footer-section {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,13 @@
+
+police(login) name:Himanshi pandey
+userid:UID_40bf4e76
+password:himashi@gmail.com
+gmail:himashi@gmail.com
+address:Newai
+
+
+police(signup) name:Sita kumari
+userid:
+password:sita@123
+gmail:sita@gmail.com
+address:jaipur

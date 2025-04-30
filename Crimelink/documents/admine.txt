@@ -1,0 +1,11 @@
+admin(login):gita
+userid:UID_cfce5c2c
+password:gita@123
+email:gita@gmail.com
+address:new delhi
+
+admin(signup):nita
+userid:
+password:nita@111
+email:nita@gmail.com
+address:jaipur

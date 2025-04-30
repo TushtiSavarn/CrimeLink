@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know Your Rights and Duties</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: #002244;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #FFD700, #002244);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: #002244;
+            text-align: center;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #e9f0f5;
+            border-left: 4px solid #002244;
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            background: #f8f9fa;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .section h3 {
+            color: #002244;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #002244;
+        }
+
+        .section p {
+            line-height: 1.8;
+            color: #34495e;
+        }
+
+        .section ul {
+            padding-left: 20px;
+        }
+
+        .section li {
+            margin: 10px 0;
+            color: #34495e;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section li::before {
+            content: '•';
+            color: #002244;
+            position: absolute;
+            left: -5px;
+            font-weight: bold;
+        }
+
+        .source {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f1f1f1;
+            border-left: 4px solid #002244;
+            font-size: 14px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            text-align: center;
+            margin-top: 30px;
+            background: #002244;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            width: 200px;
+            margin: 30px auto;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,34,68,0.3);
+        }
+
+        .back-btn:hover::before {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        Know Your Rights and Duties
+    </div>
+
+    <div class="container">
+        <h2>Understanding Your Rights & Duties as a Citizen</h2>
+
+        <!-- Fundamental Rights Section -->
+        <div class="section">
+            <h3>Fundamental Rights</h3>
+            <p>The Constitution of India guarantees certain rights to its citizens to promote equality, freedom, and justice.</p>
+            <ul>
+                <li><strong>Right to Equality:</strong> Ensures equal treatment before the law and prohibits discrimination. (Article 14-18)</li>
+                <li><strong>Right to Freedom:</strong> Includes speech, expression, assembly, and movement. (Article 19-22)</li>
+                <li><strong>Right Against Exploitation:</strong> Prohibits human trafficking, forced labor, and child labor. (Article 23-24)</li>
+                <li><strong>Right to Freedom of Religion:</strong> Guarantees religious freedom for all citizens. (Article 25-28)</li>
+                <li><strong>Right to Constitutional Remedies:</strong> Allows citizens to approach courts for rights enforcement. (Article 32-35)</li>
+            </ul>
+        </div>
+
+        <!-- Fundamental Duties Section -->
+        <div class="section">
+            <h3>Fundamental Duties</h3>
+            <p>Along with rights, citizens have a set of responsibilities to uphold national integrity.</p>
+            <ul>
+                <li>Respect the Constitution, National Flag, and National Anthem.</li>
+                <li>Promote harmony and avoid practices that harm social unity.</li>
+                <li>Protect the environment, including forests, lakes, and wildlife.</li>
+                <li>Develop a scientific temperament and humanism.</li>
+                <li>Safeguard public property and discourage violence.</li>
+                <li>Provide education to children aged 6 to 14 years.</li>
+            </ul>
+        </div>
+
+        <!-- Sources Section -->
+        <div class="source">
+            <h3>Sources:</h3>
+            <p>1. <a href="https://knowindia.india.gov.in/profile/fundamental-rights.php" target="_blank">Government of India - Fundamental Rights</a></p>
+            <p>2. <a href="https://powermin.gov.in/en/content/fundamental-duties" target="_blank">Government of India - Fundamental Duties</a></p>
+        </div>
+
+        <!-- Back Button -->
+        <a href="home.html" class="back-btn">Back to Home</a>
+    </div>
+
+</body>
+</html>

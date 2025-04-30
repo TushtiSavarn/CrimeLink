@@ -1,0 +1,177 @@
+/* General Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient */
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container */
+.container {
+    background: #fff;
+    color: #333;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 900px;
+    width: 90%;
+    transition: 0.3s;
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+p {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Grid Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* Cards */
+.card {
+    background: linear-gradient(to bottom, #f7f7f7, #e6e6e6);
+    color: #333;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background: #2575fc;
+    color: #fff;
+}
+
+/* Drop Area */
+.drop-area {
+    border: 2px dashed #6a11cb;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin: 20px 0;
+    transition: 0.3s;
+}
+
+.drop-area:hover {
+    background: #f1f1f1;
+    color: #2575fc;
+}
+
+.drop-area span {
+    color: #2575fc;
+    cursor: pointer;
+}
+
+/* File Preview */
+#file-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.file-item {
+    background: #f1f1f1;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.file-item i {
+    color: #2575fc;
+}
+
+/* Upload Button */
+.upload-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.upload-btn button {
+    background: #6a11cb;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.upload-btn button:hover {
+    background: #2575fc;
+    transform: scale(1.05);
+}
+
+/* Confirmation Message */
+.hidden {
+    display: none;
+}
+
+#confirmation-message {
+    text-align: center;
+    margin-top: 30px;
+    color: #27ae60;
+    font-size: 18px;
+}
+
+#confirmation-message i {
+    font-size: 50px;
+}
+/* Report ID Input Field Styling */
+.report-id-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.report-id-container label {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.report-id-container input {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #555;
+    border-radius: 8px;
+    outline: none;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.report-id-container input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}

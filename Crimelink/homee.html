@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CrimeLink-Home</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <style>
+        /* Header Styling */
+        .headerr {
+            height: 80px; /* Reduced height of the header */
+            width: 100%;
+            background-color: #002244;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            justify-content: space-between;
+            position: fixed; /* Fixed the header at the top */
+            top: 0;
+            left: 0;
+            z-index: 9999; /* Ensures it's always on top */
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo {
+    height: 100px; /* Increase the height of the logo */
+    width: auto; /* Keep width auto to maintain aspect ratio */
+    max-width: 180px; /* Increase the width of the logo for better visibility */
+      }
+     
+
+        .site-name {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        /* Navigation Links */
+        .nav-linkss {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-linkss a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease-in-out;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        .nav-linkss a:hover {
+            color: #FFD700;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Learning Corner Styling */
+        .Learncr {
+            height: 50px;
+            width: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .div-name {
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Container and Square Block Styling */
+        .container {
+            display: flex;  
+            gap: 20px;  
+            justify-content: center;  
+            margin-top: 120px; /* Increased from 50px to 120px to lower the boxes */
+        }
+
+        /* Learning Section */
+        .learn {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px; /* Adjusted margin for consistent spacing */
+            gap: 20px;
+        }
+
+        .Learncr {
+            margin-top: 30px; /* Added margin to maintain spacing */
+            height: 50px;
+            width: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .squarea, .squareb, .squarec {
+            height: 300px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(238, 20, 20, 0.2);
+            padding: 15px;
+            text-align: center;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .squarea { background-color: #f86363; }
+        .squareb { background-color: #6353c9; }
+        .squarec { background-color: #1284d0; }
+
+        .squarea:hover, .squareb:hover, .squarec:hover {
+            box-shadow: 0 0 20px rgba(0, 102, 255, 0.8);
+        }
+
+        /* Image Styling */
+        .square-img {
+            height: 150px;
+            width: auto;
+            margin-bottom: 10px;
+        }
+
+        /* Button Styling */
+        .square-btn {
+            background-color: rgb(18, 46, 203);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .square-btn:hover {
+            background-color: rgb(15, 35, 160);
+        }
+
+        /* Learning Section */
+        .learn {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .squared, .squaree, .squaref {
+            height: 350px; /* Increased height to accommodate content */
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between; /* Changed to space-between */
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .squared p, .squaree p, .squaref p {
+            margin: 10px 0; /* Add consistent margin */
+            flex-grow: 1; /* Allow text to grow */
+        }
+
+        .squared .square-btn, 
+        .squaree .square-btn, 
+        .squaref .square-btn {
+            margin-top: auto; /* Push buttons to bottom */
+        }
+
+        .squared:hover, .squaree:hover, .squaref:hover {
+            transform: scale(1.1);
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .squared { background-color: greenyellow; }
+        .squaree { background-color: peachpuff; }
+        .squaref { background-color: greenyellow; }
+
+        /* Icon Styling */
+        .img1, .img2, .img3 {
+            margin-bottom: 10px;
+            display: block;
+            mix-blend-mode: multiply;
+        }
+
+        /* Learning Section Icons */
+    .img1, .img2, .img3 {
+        width: 70px;
+        height: 70px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .img1:hover, .img2:hover, .img3:hover {
+        transform: rotate(10deg);
+    }
+
+        /* Enhanced Chatbot UI */
+        #chatbotIcon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #1E3A8A, #2563EB);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 10000;
+            transition: transform 0.3s ease;
+        }
+
+        #chatbotWindow {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 380px;
+            height: 450px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            z-index: 10000;
+        }
+
+        /* Update the chat messages height */
+        #chatMessages {
+            height: 230px;
+            padding: 20px;
+            background: #f8f9fa;
+            overflow-y: auto;
+        }
+
+        /* Update the question buttons */
+        .question-btn {
+            width: 100%;
+            margin: 6px 0;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #1E3A8A, #2563EB);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        /* Remove the duplicate chat-input-container styles and keep only this version */
+        .chat-input-container {
+            display: flex;
+            gap: 10px;
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+
+        #chatInput {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        #chatInput:hover {
+            transform: scale(1.1);
+        }
+
+        #chatHeader {
+            background: linear-gradient(135deg, #1E3A8A, #2563EB);
+            color: white;
+            padding: 15px 20px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .closeBtn {
+            float: right;
+            cursor: pointer;
+            font-size: 20px;
+            transition: transform 0.2s;
+        }
+
+        .closeBtn:hover {
+            transform: scale(1.1);
+        }
+
+        #chatMessages {
+            height: 300px;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        #chatMessages p {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 15px;
+            max-width: 80%;
+            line-height: 1.4;
+        }
+
+        #chatMessages p:has(strong:contains("You")) {
+            background: #e9ecef;
+            margin-left: auto;
+            border-radius: 15px 15px 0 15px;
+        }
+
+        #chatMessages p:has(strong:contains("Bot")) {
+            background: #1E3A8A;
+            color: white;
+            border-radius: 15px 15px 15px 0;
+        }
+
+        #questionButtons {
+            padding: 10px 15px;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+
+        .question-btn {
+            margin: 8px 0;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #1E3A8A, #2563EB);
+            font-size: 14px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .question-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        .chat-input-container {
+            display: flex;
+            gap: 10px;
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+
+        #chatInput {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        #chatInput:focus {
+            outline: none;
+            border-color: #2563EB;
+        }
+
+        .chat-input-container button {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #1E3A8A, #2563EB);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+
+        .chat-input-container button:hover {
+            transform: translateY(-2px);
+        }
+    .img1:hover, .img2:hover, .img3:hover {
+        transform: rotate(10deg);
+    }
+
+        /* Chatbot Styling */
+        #chatbotIcon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #1E3A8A;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        #chatbotWindow {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 320px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            z-index: 1000;
+        }
+
+        #chatHeader {
+            background: #1E3A8A;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+        }
+
+        #chatMessages {
+            height: 200px;
+            overflow-y: auto;
+            padding: 5px;
+            font-size: 14px;
+        }
+
+        .closeBtn {
+            float: right;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .question-btn {
+            display: block;
+            width: 100%;
+            margin: 8px 0;
+            padding: 12px;
+            background-color: #1E3A8A;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .question-btn:hover {
+            background-color: #152c6b;
+        }
+
+        .sosButton {
+            background: linear-gradient(90deg, #ff0000, #ff4d4d);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            animation: blink-alert 1s infinite;
+        }
+
+        @keyframes blink-alert {
+            0% {
+                background: linear-gradient(90deg, #ff0000, #ff4d4d);
+                box-shadow: 0 0 10px #ff0000;
+            }
+            50% {
+                background: linear-gradient(90deg, #ff4d4d, #ff0000);
+                box-shadow: 0 0 20px #ff4d4d;
+            }
+            100% {
+                background: linear-gradient(90deg, #ff0000, #ff4d4d);
+                box-shadow: 0 0 10px #ff0000;
+            }
+        }
+    /* Update background image styling */
+    .bgpic {
+        width: 100%;
+        height: 100vh; /* Full viewport height */
+        object-fit: cover;
+        position: fixed;
+        top: 80px; /* Align with header bottom */
+        left: 0;
+        z-index: -1; /* Place behind all content */
+    }
+    
+    /* Update container positioning */
+    .container {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 200px; /* Increased margin to position below header and part of bg image */
+        position: relative; /* Ensure it stays above background */
+        z-index: 2;
+    }
+    
+    /* Update learning section positioning */
+    .Learncr {
+        margin-top: 50px;
+        background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+        position: relative;
+        z-index: 2;
+    }
+    
+    .learn {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        gap: 20px;
+        position: relative;
+        z-index: 2;
+        margin-bottom: 50px; /* Add bottom margin for spacing */
+    }
+</style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="headerr">
+        <a href="home.html" class="logo-container">
+            <img src="logo.png" alt="CrimeLink Logo" class="logo">
+            <b class="site-name">CrimeLink</b>
+        </a>
+        <div class="nav-linkss">
+            <a href="https://www.google.com/maps/search/police+stations+near+me" target="_blank">
+                Find Nearby Police Stations
+            </a>
+            <a href="track.php">Track Your Complaint</a>
+            <a href="submitEvidencecode.html">Submit Evidence</a>
+            <!-- Replace the existing SOS button and script -->
+            <button id="sosButton" class="sosButton" onclick="sendSOS()"><b>🚨 Send SOS 🚨</b></button>
+            
+            <!-- Add this script before the closing body tag -->
+            <script>
+            function sendSOS() {
+                 if (confirm('Are you sure you want to send an SOS alert? This will notify nearby police stations.')) {
+                    // Store SOS data with timestamp
+                    const sosData = {
+                        timestamp: new Date().toISOString(),
+                        status: 'active'
+                    };
+                    localStorage.setItem('sosAlert', JSON.stringify(sosData));
+                    
+                    // Get location if available
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(
+                            (position) => {
+                                sosData.latitude = position.coords.latitude;
+                                sosData.longitude = position.coords.longitude;
+                                localStorage.setItem('sosAlert', JSON.stringify(sosData));
+                            }
+                        );
+                    }
+                    alert('SOS alert has been sent. Help is on the way!');
+                }
+            }
+            </script>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div >
+        <img src="bgpic.jpg" alt="CrimeLink Logo" class="bgpic">
+    </div>
+    <div class="container">
+        <div class="squarea">
+            <img src="women.jpg" alt="Women and Children Safety" class="square-img"> 
+            <h4>WOMEN/CHILDREN RELATED CRIME</h4>
+            <button class="square-btn" onclick="window.location.href='report.php';">Register a Complaint</button>
+        </div>
+
+        <div class="squareb">
+            <img src="money.jpg" alt="Financial Fraud Protection" class="square-img">
+            <h4>FINANCIAL FRAUD</h4> 
+            <button class="square-btn" onclick="window.location.href='report.php';">Register a Complaint</button>
+        </div>
+
+        <div class="squarec">
+            <img src="cyber.jpg" alt="Cybercrime Prevention" class="square-img">
+            <h4>CYBER CRIME</h4> 
+            <button class="square-btn" onclick="window.location.href='report.php';">Register a Complaint</button>
+        </div>
+    </div>
+
+    <!-- Learning Section -->
+    <div class="Learncr">
+        <span class="div-name">Learning Corner</span>
+    </div>
+
+    <div class="learn">
+        <div class="squared">
+            <img src="rights.jpg" alt="Legal Rights and Duties" class="img1">
+            <h3>KNOW YOUR RIGHTS AND DUTIES</h3>
+            <p>Stay informed about legal protections and responsibilities to ensure safety and fairness for all.</p>
+            <button class="square-btn" onclick="window.location.href='rightss.html';">Learn More</button>
+        </div>
+        <div class="squaree">
+            <img src="safety.jpg" alt="Safety Tips and Guidelines" class="img2">
+            <h3>SAFETY TIPS</h3>
+            <p>Stay alert, protect your personal information, avoid risky situations, and always trust your instincts for safety</p>
+            <button class="square-btn" onclick="window.location.href='safety_tips.html';">Learn More</button>
+        </div>
+        <div class="squaref">
+            <img src="awareness3.avif" alt="Crime Awareness Information" class="img3">
+            <h3>CRIME AWARENESS</h3>
+            <p>Crime awareness helps you stay vigilant, recognize threats, and take preventive measures to ensure personal and community safety</p>
+            <button class="square-btn" onclick="window.location.href='crime_awareness.html';">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Chatbot -->
+    <div id="chatbotIcon" onclick="toggleChat()">💬</div>
+    <!-- Update the chatbot window to include a text input -->
+    <div id="chatbotWindow">
+        <div id="chatHeader">
+            FAQ Chatbot
+            <span class="closeBtn" onclick="toggleChat()">✖</span>
+        </div>
+        <div id="chatMessages">
+            <p><strong>Bot:</strong> Please select a question below or type your own question.</p>
+        </div>
+        <div id="questionButtons">
+            <button class="question-btn" onclick="sendPredefinedMessage('How do I report a crime?')">How do I report a crime?</button>
+            <button class="question-btn" onclick="sendPredefinedMessage('How can I track my case?')">How can I track my case?</button>
+            <button class="question-btn" onclick="sendPredefinedMessage('What is SOS?')">What is SOS?</button>
+            <button class="question-btn" onclick="sendPredefinedMessage('Where to register my complaint?')">Where to register my complaint?</button>
+        </div>
+        <div class="chat-input-container">
+            <input type="text" id="chatInput" placeholder="Type your question here..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendUserMessage()">Send</button>
+        </div>
+    </div>
+
+    <!-- Add these styles in your existing CSS -->
+    <style>
+        .chat-input-container {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        #chatInput {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .chat-input-container button {
+            padding: 8px 15px;
+            background-color: #1E3A8A;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .chat-input-container button:hover {
+            background-color: #152c6b;
+        }
+    </style>
+
+    <!-- Update the JavaScript section -->
+    <script>
+        function toggleChat() {
+            var chatbox = document.getElementById("chatbotWindow");
+            chatbox.style.display = (chatbox.style.display === "none" || chatbox.style.display === "") ? "block" : "none";
+        }
+
+        async function sendUserMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+
+            let chatMessages = document.getElementById("chatMessages");
+            chatMessages.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
+            
+            try {
+                const response = await fetch('http://localhost:5000/faq_chatbot', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: message })
+                });
+
+                const data = await response.json();
+                chatMessages.innerHTML += `<p><strong>Bot:</strong> ${data.response}</p>`;
+            } catch (error) {
+                console.error('Error:', error);
+                chatMessages.innerHTML += `<p><strong>Bot:</strong> Sorry, I'm having trouble connecting to the server.</p>`;
+            }
+
+            input.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendUserMessage();
+            }
+        }
+
+        // Update the sendPredefinedMessage function to use the API
+        async function sendPredefinedMessage(question) {
+            let chatMessages = document.getElementById("chatMessages");
+            chatMessages.innerHTML += `<p><strong>You:</strong> ${question}</p>`;
+
+            try {
+                const response = await fetch('http://localhost:5000/faq_chatbot', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: question })
+                });
+
+                const data = await response.json();
+                chatMessages.innerHTML += `<p><strong>Bot:</strong> ${data.response}</p>`;
+            } catch (error) {
+                console.error('Error:', error);
+                chatMessages.innerHTML += `<p><strong>Bot:</strong> Sorry, I'm having trouble connecting to the server.</p>`;
+            }
+
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    </script>
+
+        <!-- New FAQ Section -->
+    <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq">
+                <p class="question">Q: What is the Crime Reporting System?</p>
+                <p>A: It allows people to report crimes online.</p>
+            </div>
+            <div class="faq">
+                <p class="question">Q: Is my data secure?</p>
+                <p>A: Yes, we use security measures to protect your information.</p>
+            </div>
+            <div class="faq">
+                <p class="question">Q: Who can use this system?</p>
+                <p>A: Anyone, including citizens, police officers, and administrators, can use the system based on their designated roles.</p>
+            </div>
+            <div class="faq">
+                <p class="question">Q: How can I report a crime using this system?</p>
+                <p>A: You can report a crime by:
+                    <br>• Registering an account
+                    <br>• Logging in to the system
+                    <br>• Filling out the crime report form
+                    <br>• Submitting the report with necessary details
+                </p>
+            </div>
+            <div class="faq">
+                <p class="question">Q: How can I track the status of my complaint?</p>
+                <p>A: Once you submit a report, you will receive a report ID. You can use this ID to check the status of your complaint in the system.</p>
+            </div>
+            <div class="faq">
+                <p class="question">Q: How do I contact support for assistance?</p>
+                <p>A: You can contact support via email at crimelink@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this CSS -->
+    <style>
+        .faq-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 20px;
+            margin: 50px auto;
+            max-width: 1200px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .faq-section h2 {
+            color: #002244;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        .faq-container {
+            display: grid;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .faq {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .faq:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            color: #002244;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .faq p {
+            color: #555;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .faq-section {
+                margin: 30px 15px;
+                padding: 20px 15px;
+            }
+
+            .faq {
+                padding: 15px;
+            }
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="report.php">Report Crime</a></li>
+                    <li><a href="trackk.html">Track Complaint</a></li>
+                    <li><a href="submitEvidencecode.html">Submit Evidence</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="https://legislative.gov.in/constitution-of-india/">Constitution</a></li>
+                    <li><a href="https://knowindia.india.gov.in/profile/fundamental-rights.php">Legal Rights</a></li>
+                    <li><a href="https://www.safeinindia.org/">Safety Guidelines</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: crimelink@gmail.com</p>
+                <p>Emergency: 112</p>
+                <p>Women Helpline: 1091</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CrimeLink. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Add footer styles -->
+    <style>
+        .footer {
+            background: #002244;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+            position: relative;
+            z-index: 3;
+            width: 100%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            margin: 20px;
+            min-width: 250px;
+        }
+
+        .footer-section h4 {
+            color: #FFD700;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media screen and (max-width: 768px) {
+            .footer-section {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</body>
+</html>

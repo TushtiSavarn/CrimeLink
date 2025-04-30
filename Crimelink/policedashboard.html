@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CrimeLink-police</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <style>
+        /* Header Styling */
+        .headerr {
+            height: 80px; /* Reduced height of the header */
+            width: 100%;
+            background-color: #002244;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            justify-content: space-between;
+            position: fixed; /* Fixed the header at the top */
+            top: 0;
+            left: 0;
+            z-index: 9999; /* Ensures it's always on top */
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo {
+    height: 100px; /* Increase the height of the logo */
+    width: auto; /* Keep width auto to maintain aspect ratio */
+    max-width: 180px; /* Increase the width of the logo for better visibility */
+}
+
+        .site-name {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        /* Navigation Links */
+        .nav-linkss {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-linkss a:hover {
+            color: #FFD700;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Background Image Styling */
+        /* Update background image styling */
+        .bgpic {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            z-index: -1;
+        }
+        
+        /* Update container positioning */
+        .container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 200px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Update square blocks styling */
+        .squarea, .squareb, .squarec {
+            background-color: rgba(62, 96, 7, 0.95);  /* Made more transparent */
+            backdrop-filter: blur(10px);
+            height: 300px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .squareb { background-color: rgba(101, 201, 83, 0.95); }
+        .squarec { background-color: rgba(18, 132, 208, 0.95); }
+        
+        /* Update text color for better visibility */
+        .squarea h2, .squareb h2, .squarec h2 {
+            color: white;
+            margin: 15px 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .squarea:hover, .squareb:hover, .squarec:hover {
+            box-shadow: 0 0 20px rgba(0, 102, 255, 0.8);
+        }
+
+        /* Image Styling */
+        .square-img {
+            height: 150px;
+            width: auto;
+            margin-bottom: 10px;
+        }
+
+        /* Button Styling */
+        .square-btn {
+            background-color: rgb(18, 46, 203);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .square-btn:hover {
+            background-color: rgb(15, 35, 160);
+        }
+       
+
+
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="headerr">
+        <a href="home.html" class="logo-container">
+            <img src="logo.png" alt="CrimeLink Logo" class="logo">
+            <b class="site-name">CrimeLink</b>
+        </a>        
+    </div>
+    <div>
+        <img src="bgpic.jpg" alt="CrimeLink Logo" class="bgpic">
+    </div>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="squarea">
+            <img src="comdoc.avif" alt="Women and Children Safety" class="square-img"> 
+            <h2>See Complaints</h2>
+            <button class="square-btn" onclick="window.location.href='see_complaints.php';">See Complaint</button>        </div>
+
+        <div class="squareb">
+            <img src="status.avif" alt="Financial Fraud Protection" class="square-img">
+            <h2>Update Complaint Status</h2> 
+            <button class="square-btn" onclick="window.location.href='view_status.php';">Update Status </button>
+        </div>
+
+        <div class="squarec">
+            <img src="police.jpg" alt="Cybercrime Prevention" class="square-img">
+            <h2>View Uploaded Evidence</h2> 
+            <button class="square-btn" onclick="window.location.href='showevidence.php';">View Evidence</button>
+        </div>
+       
+    </div>
+</body>
+<!-- Add this div after the header section -->
+<div id="sosAlertBox" style="display: none; position: fixed; top: 100px; right: 20px; background: linear-gradient(135deg, #ff0000, #ff4d4d); color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); z-index: 10000; animation: blink-alert 1s infinite;">
+    <h3>🚨 SOS ALERT! 🚨</h3>
+    <p id="sosDetails">Emergency assistance needed!</p>
+    <button onclick="acknowledgeSOS()" style="background: white; color: red; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">Acknowledge</button>
+</div>
+
+<!-- Add this script before the closing body tag -->
+<script>
+function checkSOS() {
+    const sosData = localStorage.getItem('sosAlert');
+    if (sosData) {
+        const data = JSON.parse(sosData);
+        if (data.status === 'active') {
+            const alertBox = document.getElementById('sosAlertBox');
+            const details = document.getElementById('sosDetails');
+            
+            // Format the timestamp
+            const time = new Date(data.timestamp).toLocaleString();
+            let locationInfo = 'Location: Not available';
+            
+            if (data.latitude && data.longitude) {
+                locationInfo = `Location: ${data.latitude}, ${data.longitude}`;
+            }
+            
+            details.innerHTML = `Time: ${time}<br>${locationInfo}`;
+            alertBox.style.display = 'block';
+           
+        }
+    }
+}
+
+function acknowledgeSOS() {
+    if (confirm('Are you sure you want to acknowledge this SOS alert?')) {
+        const sosData = JSON.parse(localStorage.getItem('sosAlert'));
+        sosData.status = 'acknowledged';
+        localStorage.setItem('sosAlert', JSON.stringify(sosData));
+        document.getElementById('sosAlertBox').style.display = 'none';
+    }
+}
+
+// Check for SOS alerts every 5 seconds
+setInterval(checkSOS, 5000);
+// Check immediately when page loads
+document.addEventListener('DOMContentLoaded', checkSOS);
+</script>
+
+<style>
+@keyframes blink-alert {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+</style>
+<!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="see_complaints.php">View Complaints</a></li>
+                    <li><a href="view_status.php">Update Status</a></li>
+                    <li><a href="showevidence.php">View Uploaded Evidence</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="https://legislative.gov.in/constitution-of-india/">Constitution</a></li>
+                    <li><a href="rightss.html">Legal Rights</a></li>
+                    <li><a href="safety_tips.html">Safety Guidelines</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: crimelink@gmail.com</p>
+                <p>Emergency: 112</p>
+                <p>Women Helpline: 1091</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CrimeLink. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Add footer styles -->
+    <style>
+        .footer {
+            background: #002244;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            margin: 20px;
+            min-width: 250px;
+        }
+
+        .footer-section h4 {
+            color: #FFD700;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media screen and (max-width: 768px) {
+            .footer-section {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</html>
